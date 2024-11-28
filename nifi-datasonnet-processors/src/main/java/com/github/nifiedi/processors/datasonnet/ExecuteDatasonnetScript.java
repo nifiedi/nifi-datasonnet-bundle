@@ -40,11 +40,11 @@ import static com.github.nifiedi.processors.datasonnet.Utils.getMediaType;
  */
 
 @InputRequirement(InputRequirement.Requirement.INPUT_REQUIRED)
-@Tags({"mapping"})
-@CapabilityDescription("读取mapping脚本，并执行，通过attribute读取attribute的值，通过property读取动态property的值")
-@WritesAttribute(attribute = "mime.type", description = "修改mime.type为output-media-type")
-@DynamicProperty(name = "输入property", value = "动态property", expressionLanguageScope = ExpressionLanguageScope.ENVIRONMENT,
-        description = "动态property,可以在mapping脚本中使用")
+@Tags({"datasonnet","data transformation"})
+@CapabilityDescription("Datasonnet script processor. The script is responsible for handling the incoming flow file as well as any flow files created by the script. If the handling is incomplete or incorrect, the session will be rolled back")
+@WritesAttribute(attribute = "mime.type", description = "change the mime.type as output-media-type")
+@DynamicProperty(name = "datasonnet property", value = "dynamic property", expressionLanguageScope = ExpressionLanguageScope.ENVIRONMENT,
+        description = "dynamic property, can be used in datasonnet script file")
 public class ExecuteDatasonnetScript extends AbstractProcessor {
     public static final PropertyDescriptor SCRIPT_FILE = new PropertyDescriptor.Builder()
             .name("datasonnet-script-file")
