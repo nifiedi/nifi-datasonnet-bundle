@@ -12,7 +12,7 @@ Apache NIFI processor that used for data transformation using the [Datasonnet](h
 
 ```bash
 > cd nifi-datasonnet-bundle
-> mvn package
+> mvn clean package -Denforcer.skip=true
 > cp nifi-datasonnet-nar/target/nifi-datasonnet-nar-2.0.0.nar /NIFI_INSTALL/extensions/
 ```
 
